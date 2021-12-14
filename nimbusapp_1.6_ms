@@ -2836,8 +2836,9 @@ $params{cmd} = $command;
 $params{args} = [ @ARGV ];
 
 # Mark Steffensen code to allow latest tag
-if ($params{tag} eq 'latest') {
-	$params{tag} = `/usr/local/bin/nimbusapp $params{image} --latest tags`;
+if (defined $params{tag} && $params{tag} eq 'latest') {
+        $params{tag} = nimbusapp(\%params, '--latest tags');
+        chomp $params{tag};
 }
 
 if (!defined $command) {
