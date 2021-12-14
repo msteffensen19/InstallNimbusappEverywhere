@@ -17,7 +17,7 @@ Options:
   -d, --debug Enable debugging output (use twice for verbose bash commands)
   -f, --force Skip all prompts - Use with caution, this option will happily delete your data without warning
   -s, --set   Enables you to set(override) default arguments
-  --latest    (Supported only with tags command) Runs command against latest version in repository.
+  --latest    (Supported with tags command and as a substitute for the actual version number) Runs command against latest version in repository.
   --version   Print the version of nimbusapp and exit
 
 Commands:
