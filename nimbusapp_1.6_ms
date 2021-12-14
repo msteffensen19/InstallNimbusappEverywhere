@@ -2340,7 +2340,7 @@ use feature 'signatures';
 
 use constant {
     RELEASE_VERSION => "1.6.0_ms",
-    RELEASE_DATE    => "2021-11-19",
+    RELEASE_DATE    => "2021-12-14",
     COMPOSE_FILE    => 'docker-compose.yml',
     DEFAULT_TAG_COUNT => 10
 };
