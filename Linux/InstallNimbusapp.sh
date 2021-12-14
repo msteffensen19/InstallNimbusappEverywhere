@@ -10,3 +10,4 @@ dos2unix ../nimbusapp_1.6.0_ms
 sudo cp  ../nimbusapp_1.6.0_ms /usr/local/bin/nimbusapp
 
 sudo chmod +x /usr/local/bin/nimbusapp
+echo "Done!"
