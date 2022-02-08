@@ -2606,7 +2606,7 @@ sub docker_app($cmd, $params, $args) {
 
 sub docker_compose($cmd, $params, $args) {
 
-	if ($^O eq "MSWin32") { # If we're on Windows run the Steffense changes
+	if ($^O eq "MSWin32") { # If we're on Windows run the Steffensen changes
 		# Steffensen change - added this if statement to stop LR agent process for start or up - WINDOWS ONLY
 		if ($cmd eq 'start' || $cmd eq 'up') {
 			print "Stopping LR Agent  ..." ;
