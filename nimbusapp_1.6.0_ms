@@ -2428,10 +2428,10 @@ sub text_block($name, $params = {}) {
     state $text = load_text();
     state $template = Template::Tiny->new();
     state $formatting = {
-        red => color('bold red'),
-        yellow => color('bold yellow'),
-        bold => color('bold'),
-        reset => color('reset')
+        #red => color('bold red'),
+        #yellow => color('bold yellow'),
+        #bold => color('bold'),
+        #reset => color('reset')
     };
 
     die "Unknown message template: ${name}.\n" unless $text->{$name};
@@ -2660,9 +2660,14 @@ sub docker_compose($cmd, $params, $args) {
 	# Steffensen change - added this if statement to start LR agent process for stop or down - WINDOWWS ONLY
 	# Must start LR Agent only after all containers are stopped
 	if ($^O eq "MSWin32" && ($cmd eq 'stop' || $cmd eq 'down')) {
-		print "Starting LR Agent  ..." ;
-		system 1, "C:\\Program Files (x86)\\Micro Focus\\LoadRunner\\launch_service\\bin\\magentproc.exe";
-		print GREEN " done\n", RESET;
+		use Sys::Hostname;
+		my $hostname = hostname();
+		if ( $hostname eq "nimbusclient" ) {
+			print "Starting LR Agent  ..." ;
+			system 1, "C:\\Program Files (x86)\\Micro Focus\\LoadRunner\\launch_service\\bin\\magentproc.exe";
+			#print GREEN " done\n", RESET;
+			print " done\n"; ;
+		}
 	}
 
     return 0;
