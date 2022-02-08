@@ -2609,9 +2609,13 @@ sub docker_compose($cmd, $params, $args) {
 
 	# Steffensen change - added this if statement to stop LR agent process for start or up - WINDOWS ONLY
 	if ($^O eq "MSWin32" && ($cmd eq 'start' || $cmd eq 'up')) {
-		print "Stopping LR Agent  ..." ;
-		system "taskkill /IM magentproc.exe /F >nul 2>&1";
-		print GREEN " done\n", RESET;
+		use Sys::Hostname;
+		my $hostname = hostname();
+		if ( $hostname eq "nimbusclient" ) { # only do this if on nimbusclient
+			print "Stopping LR Agent  ..." ;
+			system "taskkill /IM magentproc.exe /F >nul 2>&1";
+			print GREEN " done\n", RESET;
+		}
 	}
 	
     if (! -f $params->{composeFile}) {
@@ -2662,7 +2666,7 @@ sub docker_compose($cmd, $params, $args) {
 	if ($^O eq "MSWin32" && ($cmd eq 'stop' || $cmd eq 'down')) {
 		use Sys::Hostname;
 		my $hostname = hostname();
-		if ( $hostname eq "nimbusclient" ) {
+		if ( $hostname eq "nimbusclient" ) { # only do this if on nimbusclient
 			print "Starting LR Agent  ..." ;
 			system 1, "C:\\Program Files (x86)\\Micro Focus\\LoadRunner\\launch_service\\bin\\magentproc.exe";
 			#print GREEN " done\n", RESET;
