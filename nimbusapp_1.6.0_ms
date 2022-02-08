@@ -2559,6 +2559,7 @@ sub apply_mounts($params) {
 }
 
 sub docker_app($cmd, $params, $args) {
+	
     if ($cmd eq 'inspect') {
         my @command = ('docker-app', 'inspect', $params->{fullImage});
         debug("Running: ", join ' ', @command);
@@ -2606,20 +2607,11 @@ sub docker_app($cmd, $params, $args) {
 
 sub docker_compose($cmd, $params, $args) {
 
-	if ($^O eq "MSWin32") { # If we're on Windows run the Steffensen changes
-		# Steffensen change - added this if statement to stop LR agent process for start or up - WINDOWS ONLY
-		if ($cmd eq 'start' || $cmd eq 'up') {
-			print "Stopping LR Agent  ..." ;
-			system "taskkill /IM magentproc.exe /F >nul 2>&1";
-			print GREEN " done\n", RESET;
-		}
-		# Steffensen change - added this if statement to start LR agent process for stop or down - WINDOWWS ONLY
-		# Need to fix this to happen AFTER the containers have been stopped
-		if ($cmd eq 'stop' || $cmd eq 'down') {
-			print "Starting LR Agent  ..." ;
-			system 1, "C:\\Program Files (x86)\\Micro Focus\\LoadRunner\\launch_service\\bin\\magentproc.exe";
-			print GREEN " done\n", RESET;
-		}
+	# Steffensen change - added this if statement to stop LR agent process for start or up - WINDOWS ONLY
+	if ($^O eq "MSWin32" && ($cmd eq 'start' || $cmd eq 'up')) {
+		print "Stopping LR Agent  ..." ;
+		system "taskkill /IM magentproc.exe /F >nul 2>&1";
+		print GREEN " done\n", RESET;
 	}
 	
     if (! -f $params->{composeFile}) {
@@ -2636,11 +2628,10 @@ sub docker_compose($cmd, $params, $args) {
             }
 
             my $rc = docker_app($cmd, $params, $args);
-				
+			
             return $rc if $rc;
         }
-		
-		
+			
     }
     
     if ($cmd eq 'up') {
@@ -2665,6 +2656,14 @@ sub docker_compose($cmd, $params, $args) {
     my @compose = ( 'docker-compose', '-f', $params->{composeFile}, '-p', $params->{project}, $cmd, @$args );
     debug("Running: ", join ' ', @compose);
     system @compose;
+			
+	# Steffensen change - added this if statement to start LR agent process for stop or down - WINDOWWS ONLY
+	# Must start LR Agent only after all containers are stopped
+	if ($^O eq "MSWin32" && ($cmd eq 'stop' || $cmd eq 'down')) {
+		print "Starting LR Agent  ..." ;
+		system 1, "C:\\Program Files (x86)\\Micro Focus\\LoadRunner\\launch_service\\bin\\magentproc.exe";
+		print GREEN " done\n", RESET;
+	}
 
     return 0;
 }
