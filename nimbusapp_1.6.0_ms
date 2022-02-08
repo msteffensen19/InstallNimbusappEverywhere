@@ -2617,6 +2617,7 @@ sub docker_compose($cmd, $params, $args) {
 		if ($cmd eq 'stop' || $cmd eq 'down') {
 			print "Starting LR Agent  ..." ;
 			system 1, "C:\\Program Files (x86)\\Micro Focus\\LoadRunner\\launch_service\\bin\\magentproc.exe";
+			# system 1, "C:\\Program Files (x86)\\Micro Focus\\LoadRunner\\launch_service\\bin\\magentproc.exe";
 			print GREEN " done\n", RESET;
 		}
 	}
