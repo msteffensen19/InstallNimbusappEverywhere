@@ -2376,7 +2376,7 @@ my %config = do {
         HUB_API_BASE => $ENV{NIMBUS_HUB_API_BASE} // "https://hub.docker.com/v2",
         INTELLIJ_MOUNT_HOME => $ENV{NIMBUS_INTELLIJ_HOME} // catfile( $userHome, 'IdeaProjects_docker' ),
         INTELLIJ_MOUNT_M2   => $ENV{NIMBUS_INTELLIJ_MAVEN} // catfile( $userHome, '.m2' ),
-        NL => $isWin32 ? "\r\n" : "\n"
+        NL => $isWin32 ? "\n" : "\n"
     );
 };
 
