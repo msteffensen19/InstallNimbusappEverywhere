@@ -2343,7 +2343,7 @@ no warnings 'experimental::signatures';
 use feature 'signatures';
 
 use constant {
-    RELEASE_VERSION => "1.6.1",
+    RELEASE_VERSION => "1.6.1_ms",
     RELEASE_DATE    => "2022-04-01",
     COMPOSE_FILE    => 'docker-compose.yml',
     DEFAULT_TAG_COUNT => 10
