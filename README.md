@@ -8,7 +8,7 @@ published image wihout having to lookup that image number manually.
 It also does two other things on Windows platforms (like NimbusClient)
 to stop the running LR Agent, since that uses the same port as LRE.
 
-So, when you start LRE on NimbusClient, it automatically kills the LRE
+So, when you start LRE on NimbusClient, it automatically kills the LR
 agent process (magent.exe) before running the LRE container.
 
 Similarly, when you run a down or stop on the LRE contaainer, it will
