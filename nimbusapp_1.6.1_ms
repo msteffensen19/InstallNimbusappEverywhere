@@ -2329,7 +2329,7 @@ use Getopt::Long;
 use Time::Piece;
 use Sort::Versions;
 use Term::ANSIColor qw(:constants); # Steffensen to allow color text
-#use Term::ANSIColor;
+# use Term::ANSIColor;
 
 use if $^O eq 'MSWin32',   'Win32::Console::ANSI';
 use if $^O eq 'MSWin32', qw'Win32::ShellQuote quote_system';
@@ -2377,9 +2377,10 @@ my %config = do {
         HUB_API_BASE => $ENV{NIMBUS_HUB_API_BASE} // "https://hub.docker.com/v2",
         INTELLIJ_MOUNT_HOME => $ENV{NIMBUS_INTELLIJ_HOME} // catfile( $userHome, 'IdeaProjects_docker' ),
         INTELLIJ_MOUNT_M2   => $ENV{NIMBUS_INTELLIJ_MAVEN} // catfile( $userHome, '.m2' ),
-        NL => $isWin32 ? "\n" : "\n"  # Steffensen change - had to remove \r - not sure why
+        NL => $isWin32 ? "\n" : "\n"
     );
 };
+# Steffensen change NL above - had to remove \r - not sure why
 
 my %dispatch = (
     help => sub { usage(); },
