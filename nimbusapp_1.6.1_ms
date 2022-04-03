@@ -2615,10 +2615,13 @@ sub docker_compose($cmd, $params, $args) {
 # Steffensen change - added this if statement to stop LR agent process for start or up - WINDOWS ONLY
     if ($^O eq "MSWin32" && ($cmd eq 'start' || $cmd eq 'up')) {
     	use Sys::Hostname;
+    	my $execpath = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe";
+	my $servicename = "\\\"LoadRunner\ Data\ Service\\\"";
     	my $hostname = hostname();
     	if ( $hostname eq "nimbusclient" ) { # only do this if on nimbusclient
     		print "Stopping LR Agent  ..." ;
     		system "taskkill /IM magentproc.exe /F >nul 2>&1";
+			system "$execpath Stop-Service $servicename";
     		# print GREEN " done\n", RESET;
     		print " done\n";
     	}
@@ -2670,12 +2673,15 @@ sub docker_compose($cmd, $params, $args) {
     # Must start LR Agent only after all containers are stopped
     if ($^O eq "MSWin32" && ($cmd eq 'stop' || $cmd eq 'down')) {
 	use Sys::Hostname;
+	my $execpath = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe";
+	my $servicename = "\\\"LoadRunner\ Data\ Service\\\"";
 	my $hostname = hostname();
 	if ( $hostname eq "nimbusclient" ) { # only do this if on nimbusclient
 		print "Starting LR Agent  ..." ;
 		system 1, "C:\\Program Files (x86)\\Micro Focus\\LoadRunner\\launch_service\\bin\\magentproc.exe";
+		system "$execpath Start-Service $servicename";
 		#print GREEN " done\n", RESET;
-		print " done\n"; ;
+		print " done\n";
 	}
     }
 
