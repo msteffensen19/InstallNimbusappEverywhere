@@ -2328,7 +2328,8 @@ use Template::Tiny; # Text content
 use Getopt::Long;
 use Time::Piece;
 use Sort::Versions;
-use Term::ANSIColor;
+use Term::ANSIColor qw(:constants); # Steffensen to allow color text
+#use Term::ANSIColor;
 
 use if $^O eq 'MSWin32',   'Win32::Console::ANSI';
 use if $^O eq 'MSWin32', qw'Win32::ShellQuote quote_system';
@@ -2622,8 +2623,8 @@ sub docker_compose($cmd, $params, $args) {
     		print "Stopping LR Agent  ..." ;
     		system "taskkill /IM magentproc.exe /F >nul 2>&1";
 			system "$execpath Stop-Service $servicename";
-    		# print GREEN " done\n", RESET;
-    		print " done\n";
+    		print GREEN " done\n", RESET;
+    		# print " done\n";
     	}
     }
 
@@ -2680,8 +2681,8 @@ sub docker_compose($cmd, $params, $args) {
 		print "Starting LR Agent  ..." ;
 		system 1, "C:\\Program Files (x86)\\Micro Focus\\LoadRunner\\launch_service\\bin\\magentproc.exe";
 		system "$execpath Start-Service $servicename";
-		#print GREEN " done\n", RESET;
-		print " done\n";
+		print GREEN " done\n", RESET;
+		# print " done\n";
 	}
     }
 
