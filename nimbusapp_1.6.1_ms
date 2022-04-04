@@ -2328,7 +2328,7 @@ use Template::Tiny; # Text content
 use Getopt::Long;
 use Time::Piece;
 use Sort::Versions;
-use Term::ANSIColor qw(:constants); # Steffensen to allow color text
+use Term::ANSIColor qw(:constants color); # Steffensen to allow color text
 # use Term::ANSIColor;
 
 use if $^O eq 'MSWin32',   'Win32::Console::ANSI';
