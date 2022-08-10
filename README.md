@@ -4,7 +4,7 @@ Install Mark's version of Nimbusapp on Windows and Linux.
 This modified nimbusapp script allows you to use a new syntax
 "nimbusapp alm:latest up" to find and substitute the "latest"
 published image wihout having to lookup that image number manually.
-You can also use "nimbusapp alm purge" syntax to delete the selected
+You can also use the "nimbusapp alm purge" syntax to delete the selected
 container(s) and remove the associated images. This is equivalent
 to a "nimbusapp alm down" followed by a "docker rmi admpresales/alm".
 
