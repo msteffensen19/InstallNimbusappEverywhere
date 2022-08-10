@@ -2346,7 +2346,7 @@ no warnings 'experimental::signatures';
 use feature 'signatures';
 
 use constant {
-    RELEASE_VERSION => "1.6.1_ms",
+    RELEASE_VERSION => "1.6.2_ms",
     RELEASE_DATE    => "2022-04-01",
     COMPOSE_FILE    => 'docker-compose.yml',
     DEFAULT_TAG_COUNT => 10
@@ -2960,7 +2960,7 @@ CONFIRM_PURGE => q{
 
 [% bold %]You may wish to use [% reset %]`nimbusapp [% originalImage %] stop'[% bold %] to shut down your containers without deleting them[% reset %]
     
-[% bold %]The following container(s) and its image(s) will be deleted:[% reset %]
+[% bold %]The following container(s) and their image(s) will be deleted:[% reset %]
 [% FOREACH item IN containers -%]
     - [% item %]
 [% END -%]
@@ -2999,12 +2999,13 @@ CONFIRM_RECREATE => q{
 },
 
 USAGE => q{
-Usage: nimbusapp <IMAGE>[:<VERSION>] [OPTIONS] COMMAND [CMD OPTIONS]
+Usage: nimbusapp <IMAGE>[:<VERSION>/latest] [OPTIONS] COMMAND [CMD OPTIONS]
 
 Options:
     IMAGE       The Docker App file you wish to run. If no repository is provided, admpresales is assumed.
     VERSION     The version of the Docker App file you wish to run.
                 Only required the first time a container is created, and will be cached for future use.
+    latest      When supplied as the version, the value from "nimbusapp <IMAGE> --latest tags" is substituted.
     -d, --debug Enable debugging output (use twice for verbose bash commands)
     -f, --force Skip all prompts - Use with caution, this option will happily delete your data without warning
     -s, --set   Enables you to set(override) default arguments
