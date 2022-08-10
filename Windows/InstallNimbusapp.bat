@@ -7,7 +7,7 @@ echo f | xcopy /f /y "C:\Program Files\Docker\nimbusapp.pl" "C:\Program Files\Do
 
 echo ---Copying in new nimbusapp.pl file...
 
-echo f | xcopy /f /y "..\nimbusapp_1.6.1_ms"  "C:\Program Files\Docker\nimbusapp.pl"
+echo f | xcopy /f /y "..\nimbusapp_1.6.2_ms"  "C:\Program Files\Docker\nimbusapp.pl"
 
 echo ---Copying in nimbusapp.bat file...
 echo f | xcopy /f /y "..\nimbusapp.bat"  "C:\Program Files\Docker\nimbusapp.bat"
