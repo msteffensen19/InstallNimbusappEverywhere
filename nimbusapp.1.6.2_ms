@@ -2672,7 +2672,7 @@ sub docker_compose($cmd, $params, $args) {
 
     if ($cmd eq 'purge') {
 
-        $cmd = 'down'; # change docker compose command to down - there is no purge in docker
+        $cmd = 'down'; # change docker-compose command to down - there is no purge in docker-compose
 
         # Remove named and anonymous volumes with the container
         unshift @$args, '-v' unless $params->{preserve_volumes} || grep { $_ eq '-v' } @$args;
