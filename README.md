@@ -1,16 +1,22 @@
 # InstallNimbusappEverywhere
 Install Mark's version of Nimbusapp on Windows and Linux.
 
-This modified nimbusapp script allows you to use a new syntax
-"nimbusapp alm:latest up" to find and substitute the "latest"
+This modified nimbusapp script adds the following new features:
+1. Enables using "latest" option when supplying a version.
+2. Enables using "purge" option to remove containers and images.
+3. Enables stopping/starting the LR Agent process on Windows.
+
+The commands "nimbusapp alm:latest up" will find and substitute the "latest"
 published image wihout having to lookup that image number manually.
-You can also use the "nimbusapp alm purge" syntax to delete the selected
+
+The command "nimbusapp alm purge" will delete the selected
 container(s) and remove the associated images. This is equivalent
 to a "nimbusapp alm down" followed by a "docker rmi admpresales/alm".
 
-On Windows platforms (like NimbusClient or NimbusWindows) it also stops
-the LR Agent when starting the LRE container since that service uses the
-same port as LRE. When stopping the LRE containner it starts the agent.
+On Windows platforms (like NimbusClient or NimbusWindows) this modified
+nimbusapp command will stop the LR Agent when starting the LRE container
+since that service uses the same port as LRE. When stopping the LRE containner
+it starts the agent.
 
 So, when you "start" or "up" the LRE container on NimbusClient, it
 automatically kills the LR agent process (magent.exe) before running
