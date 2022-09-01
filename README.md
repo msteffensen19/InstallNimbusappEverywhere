@@ -14,7 +14,7 @@ container(s) and remove the associated images. This is equivalent
 to a "nimbusapp alm down" followed by a "docker rmi admpresales/alm".
 
 This command "nimbusapp alm bounce" will run a 'down' and then an 'up'
-on the selected container(s). it also works with 'downup' instead of 'bounce'.
+on the selected container(s). It also works with 'downup' instead of 'bounce'.
 
 On Windows platforms (like NimbusClient or NimbusWindows) this modified
 nimbusapp command will stop the LR Agent when starting the LRE container
