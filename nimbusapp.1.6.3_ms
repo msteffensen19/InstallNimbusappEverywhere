@@ -3021,8 +3021,6 @@ CONFIRM_PURGE => q{
 
 CONFIRM_DOWNUP => q{
 [% bold %]This action will [% red %]DOWN-UP[% reset %] or [% red %]BOUNCE[% reset %][% bold %] your containers and is [% red %]IRREVERSIBLE[% reset %]!
-
-[% bold %]You may wish to use [% reset %]`nimbusapp [% originalImage %] down'[% bold %] to remove your containers without deleting the imagesm[% reset %]
     
 [% bold %]The following container(s) and their image(s) will be bounced (down'd and up'd):[% reset %]
 [% FOREACH item IN containers -%]
