@@ -4,7 +4,8 @@ Install Mark's version of Nimbusapp on Windows and Linux.
 This modified nimbusapp script adds the following new features:
 1. Enables using "latest" option when supplying a version.
 2. Enables using "purge" option to remove containers and images.
-3. Enables stopping/starting the LR Agent process on Windows.
+3. Enables using "bounce" or "downup" to remove containers and recreate/start them.
+4. Enables stopping/starting the LR Agent process on Windows.
 
 The commands "nimbusapp alm:latest up" will find and substitute the "latest"
 published image wihout having to lookup that image number manually.
