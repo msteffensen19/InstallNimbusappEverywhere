@@ -1,7 +1,7 @@
 @echo off
 :: Nimbusapp installation on Windows
 :: Requires docker to already be install in C:\Programs\Docker
-:: Requires Strawberry Perls vv5.20.0 or greater
+:: Requires Strawberry Perl v5.20.0 or greater
 
 echo ---Backing up existing nimbusapp.pl file into nimbusapp.pl.orig (if it exists)
 echo f | xcopy /f /y "C:\Program Files\Docker\nimbusapp.pl" "C:\Program Files\Docker\nimbusapp.pl.orig"
