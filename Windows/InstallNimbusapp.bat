@@ -8,7 +8,10 @@ curl https://github.com/StrawberryPerl/Perl-Dist-Strawberry/releases/download/SP
 echo "---Follow the prompts and allow Perl to be installed..."
 
 echo "---Installing Perl 5.38.0.1 - Approve and follow the prompts"
-./strawberry-perl-5.38.0.1-64bit.msi
+.\strawberry-perl-5.38.0.1-64bit.msi
+
+echo "---Removing Strawberry Perl MSI file..."
+del .\strawberry-perl-5.38.0.1-64bit.msi
 
 echo ---Backing up existing nimbusapp.pl file into nimbusapp.pl.orig (if it exists)
 echo f | xcopy /f /y "C:\Program Files\Docker\nimbusapp.pl" "C:\Program Files\Docker\nimbusapp.pl.orig"
