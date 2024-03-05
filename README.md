@@ -26,7 +26,7 @@ So, when you "start" or "up" the LRE container on NimbusClient, it
 automatically kills the LR agent process (magent.exe) before running
 the LRE container.
 
-Similarly, when you run a "down" or "stop" command on the LRE contaainer, it 
+Similarly, when you run a "down" or "stop" command on the LRE container, it 
 will start the LR Agent process. This allows for simplified demoing of LRP
 showing script creation in VuGen followed by starting the LRE container to show
 the creation and running of enterprise scenarios in LRE.
